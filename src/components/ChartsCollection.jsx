@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { AppBar, Tabs, Tab } from '@material-ui/core'
 import TabPanel from './TabPanel'
+import DisplXHeatMap from './DisplXHeatMap'
 
 const a11yProps = (index) => ({
   id: `simple-tab-${index}`,
@@ -25,7 +26,7 @@ const ChartsCollection = () => {
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
-        DESPLAZAMIENTOS X
+        <DisplXHeatMap />
       </TabPanel>
       <TabPanel value={value} index={1}>
         DESPLAZAMIENTOS Y

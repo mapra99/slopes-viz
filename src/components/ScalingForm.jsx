@@ -1,9 +1,9 @@
 import { useState, useEffect, useContext } from 'react'
-import { Typography, TextField, Box } from '@material-ui/core'
+import { Typography, TextField, Box, Button } from '@material-ui/core'
 import { DisplacementsContext } from '../contexts/DisplacementsContext'
 
 const ScalingForm = () => {
-  const { setUnitsScale } = useContext(DisplacementsContext)
+  const { setUnitsScale, scaleRawData } = useContext(DisplacementsContext)
 
   const [widthMilimeters, setWidthMilimeters] = useState(null)
   const [widthPixels, setWidthPixels] = useState(null)
@@ -49,6 +49,14 @@ const ScalingForm = () => {
         <TextField id="talud-height-mm" label="mm" style={{width: "50%"}} onChange={e => setHeightMilimeters(e.target.value)} value={heightMilimeters} />
         <TextField id="talud-height-px" label="px" style={{width: "50%"}} onChange={e => setHeightPixels(e.target.value)} value={heightPixels} />
         <Typography>Relación: {heightScale}</Typography>
+      </Box>
+
+      <Box m="10px 0">
+        <Button
+          variant="contained"
+          onClick={scaleRawData}>
+          Graficar
+        </Button>
       </Box>
     </form>
   )

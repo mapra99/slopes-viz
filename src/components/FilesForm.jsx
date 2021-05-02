@@ -21,8 +21,8 @@ const FilesForm = () => {
         Cargar Archivos
       </Typography>
       <Button
-      variant="contained"
-      component="label">
+        variant="contained"
+        component="label">
         Desplazamientos X
         <input
           type="file"

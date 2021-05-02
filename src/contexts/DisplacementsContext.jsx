@@ -60,8 +60,6 @@ export const DisplacementsProvider = ({ children }) => {
     setScaledData(transformedData)
   }
 
-  useEffect(scaleRawData, [unitsScale, rawData])
-
   const contextVal = {
     rawData,
     loadRawData,
@@ -70,7 +68,8 @@ export const DisplacementsProvider = ({ children }) => {
     unitsScale,
     setUnitsScale,
 
-    scaledData
+    scaledData,
+    scaleRawData
   }
 
   return (
