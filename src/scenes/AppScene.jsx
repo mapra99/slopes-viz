@@ -1,5 +1,6 @@
 import { Grid } from '@material-ui/core'
-import SettingsPanel from '../components/SettingsPanel';
+import SettingsPanel from '../components/SettingsPanel'
+import ChartsCollection from '../components/ChartsCollection'
 
 const AppScene = () => (
   <Grid container spacing={3}>
@@ -7,7 +8,7 @@ const AppScene = () => (
       <SettingsPanel />
     </Grid>
     <Grid xs={12} sm={9}>
-      WORLD
+      <ChartsCollection />
     </Grid>
   </Grid>
 )
