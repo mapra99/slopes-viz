@@ -1,2 +1,5 @@
 export * from './pluck'
 export * from './isEmptyObject'
+export * from './groupBy'
+export * from './arrayfy'
+export * from './normalizeChartData'

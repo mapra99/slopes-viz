@@ -18,6 +18,16 @@ export const defaultOptions = {
     maxColor: '#FF0000'
   },
 
+  yAxis: {
+    title: null,
+    reversed: true,
+    visible: false
+  },
+
+  xAxis: {
+    visible: false
+  },
+
   legend: {
     align: 'right',
     layout: 'vertical',
@@ -29,7 +39,7 @@ export const defaultOptions = {
 
   tooltip: {
     formatter: function () {
-      return this.point.value
+      return this.point.value.toFixed(2)
     }
   },
 

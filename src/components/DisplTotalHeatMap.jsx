@@ -4,21 +4,27 @@ import NoDataComplain from './NoDataComplain'
 import { DisplacementsContext } from '../contexts/DisplacementsContext'
 import { pluck, isEmptyObject, normalizeChartData } from '../utils/dataUtils'
 
-const DisplXHeatMap = () => {
+const DisplTotalHeatMap = () => {
   const { scaledData } = useContext(DisplacementsContext)
   if (isEmptyObject(scaledData)) return <NoDataComplain />
 
   const normalizedData = normalizeChartData(scaledData)
   return (
     <HeatMap
-      data = { pluck(normalizedData, ['xCoord', 'yCoord', 'dispX']) }
+      data = { pluck(normalizedData, ['xCoord', 'yCoord', 'totalDisp']) }
       customOptions = {{
         title: {
-          text: 'Desplazamientos en X'
+          text: 'Desplazamientos Totales'
+        },
+
+        colorAxis: {
+          min: 0,
+          minColor: '#0000FF',
+          maxColor: '#FF0000'
         },
       }}
     />
   )
 }
 
-export default DisplXHeatMap
+export default DisplTotalHeatMap
