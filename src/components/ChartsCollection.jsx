@@ -21,22 +21,26 @@ const ChartsCollection = () => {
     <>
       <AppBar position="static">
         <Tabs value={value} onChange={handleChange} aria-label="simple tabs example">
-          <Tab label="Desplazamientos X" {...a11yProps(0)} />
-          <Tab label="Desplazamientos Y" {...a11yProps(1)} />
-          <Tab label="Desplazamientos Totales" {...a11yProps(2)} />
-          <Tab label="Campo de Desplazamientos" {...a11yProps(3)} />
+          <Tab label="Contour Plot" {...a11yProps(0)} />
+          <Tab label="Desplazamientos X" {...a11yProps(1)} />
+          <Tab label="Desplazamientos Y" {...a11yProps(2)} />
+          <Tab label="Desplazamientos Totales" {...a11yProps(3)} />
+          <Tab label="Campo de Desplazamientos" {...a11yProps(4)} />
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
         <DisplXHeatMap />
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <DisplYHeatMap />
+        <DisplXHeatMap />
       </TabPanel>
       <TabPanel value={value} index={2}>
-        <DisplTotalHeatMap />
+        <DisplYHeatMap />
       </TabPanel>
       <TabPanel value={value} index={3}>
+        <DisplTotalHeatMap />
+      </TabPanel>
+      <TabPanel value={value} index={4}>
         CAMPO DE DESPLAZAMIENTOS
       </TabPanel>
     </>
