@@ -2,13 +2,13 @@ import { useContext } from 'react'
 import ContourPlot from './ContourPlot'
 import NoDataComplain from './NoDataComplain'
 import { DisplacementsContext } from '../contexts/DisplacementsContext'
-import { pluck, isEmptyObject, parseContourData } from '../utils/dataUtils'
+import { isEmptyObject, parseContourData } from '../utils/dataUtils'
 
 const DisplXHeatMap = () => {
   const { scaledData } = useContext(DisplacementsContext)
   if (isEmptyObject(scaledData)) return <NoDataComplain />
 
-  const data = parseContourData(scaledData, "totalDisp")
+  const data = parseContourData(scaledData, "dispX")
   return (
     <ContourPlot
       data={data}
