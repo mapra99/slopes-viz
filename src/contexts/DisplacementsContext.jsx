@@ -7,7 +7,8 @@ export const DisplacementsProvider = ({ children }) => {
   const [loadingRawData, setLoadingRawData] = useState(false)
   const [unitsScale, setUnitsScale] = useState(1)
   const [options, setOptions] = useState({
-    interpolateData: false
+    interpolateData: false,
+    zeroesForNull: false
   })
 
   const totalDisplacement = (pointData) => {

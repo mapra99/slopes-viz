@@ -5,7 +5,8 @@ import { DisplacementsContext } from '../contexts/DisplacementsContext'
 const OptionsForm = () => {
   const { options, setOptions } = useContext(DisplacementsContext);
   const {
-    interpolateData
+    interpolateData,
+    zeroesForNull
   } = options;
 
   return (
@@ -23,6 +24,18 @@ const OptionsForm = () => {
           />
         }
         label="Interpolar data"
+      />
+
+      <FormControlLabel
+        control={
+          <Checkbox
+            checked={zeroesForNull}
+            onChange={(e) => setOptions({...options, zeroesForNull: e.target.checked})}
+            name="zeroesForNull"
+            color="primary"
+          />
+        }
+        label="Hacer datos inexistentes igual a 0"
       />
     </form>
   )

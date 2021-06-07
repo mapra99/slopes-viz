@@ -1,6 +1,8 @@
 import { pluck, getUnique, groupBy } from './'
 
-export const parseContourData = (data, zKey) => {
+export const parseContourData = (data, zKey, options) => {
+  const nullValue = options.zeroesForNull ? 0 : null
+
   const groupedByX = groupBy(data, "initialX")
 
   const xValues = getUnique(pluck(data, ["initialX"]).flat()).sort((a,b) => (a - b))
@@ -9,7 +11,7 @@ export const parseContourData = (data, zKey) => {
   const zValues = xValues.map(x => (
     yValues.map(y => {
       const target = groupedByX[x].find(record => record["initialY"] === y)
-      return target ? target[zKey] : null
+      return target ? target[zKey] : nullValue
     })
   ))
 

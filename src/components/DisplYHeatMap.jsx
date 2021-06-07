@@ -5,11 +5,11 @@ import { DisplacementsContext } from '../contexts/DisplacementsContext'
 import { isEmptyObject, parseContourData } from '../utils/dataUtils'
 
 const DisplYHeatMap = () => {
-  const { scaledData, options: { interpolateData } } = useContext(DisplacementsContext)
+  const { scaledData, options } = useContext(DisplacementsContext)
   if (isEmptyObject(scaledData)) return <NoDataComplain />
 
-  const data = parseContourData(scaledData, "dispY")
-  data.connectgaps = interpolateData
+  const data = parseContourData(scaledData, "dispY", options)
+  data.connectgaps = options.interpolateData
 
   return (
     <ContourPlot
