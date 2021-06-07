@@ -5,10 +5,12 @@ import { DisplacementsContext } from '../contexts/DisplacementsContext'
 import { isEmptyObject, parseContourData } from '../utils/dataUtils'
 
 const DisplTotalHeatMap = () => {
-  const { scaledData } = useContext(DisplacementsContext)
+  const { scaledData, options: { interpolateData } } = useContext(DisplacementsContext)
   if (isEmptyObject(scaledData)) return <NoDataComplain />
 
   const data = parseContourData(scaledData, "totalDisp")
+  data.connectgaps = interpolateData
+
   return (
     <ContourPlot
       data={data}
