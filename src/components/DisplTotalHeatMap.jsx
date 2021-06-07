@@ -1,28 +1,20 @@
 import { useContext } from 'react'
-import HeatMap from './HeatMap'
+import ContourPlot from './ContourPlot'
 import NoDataComplain from './NoDataComplain'
 import { DisplacementsContext } from '../contexts/DisplacementsContext'
-import { pluck, isEmptyObject, normalizeChartData } from '../utils/dataUtils'
+import { isEmptyObject, parseContourData } from '../utils/dataUtils'
 
 const DisplTotalHeatMap = () => {
-  const { scaledData } = useContext(DisplacementsContext)
+  const { scaledData, options } = useContext(DisplacementsContext)
   if (isEmptyObject(scaledData)) return <NoDataComplain />
 
-  const normalizedData = normalizeChartData(scaledData)
-  return (
-    <HeatMap
-      data = { pluck(normalizedData, ['xCoord', 'yCoord', 'totalDisp']) }
-      customOptions = {{
-        title: {
-          text: 'Desplazamientos Totales'
-        },
+  const data = parseContourData(scaledData, "totalDisp", options)
+  data.connectgaps = options.interpolateData
 
-        colorAxis: {
-          min: 0,
-          minColor: '#0000FF',
-          maxColor: '#FF0000'
-        },
-      }}
+  return (
+    <ContourPlot
+      data={data}
+      title="Desplazamientos Resultantes"
     />
   )
 }

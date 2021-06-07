@@ -6,6 +6,10 @@ export const DisplacementsProvider = ({ children }) => {
   const [scaledData, setScaledData] = useState({})
   const [loadingRawData, setLoadingRawData] = useState(false)
   const [unitsScale, setUnitsScale] = useState(1)
+  const [options, setOptions] = useState({
+    interpolateData: false,
+    zeroesForNull: false
+  })
 
   const totalDisplacement = (pointData) => {
     const { dispX, dispY } = pointData
@@ -69,7 +73,10 @@ export const DisplacementsProvider = ({ children }) => {
     setUnitsScale,
 
     scaledData,
-    scaleRawData
+    scaleRawData,
+
+    options,
+    setOptions
   }
 
   return (
