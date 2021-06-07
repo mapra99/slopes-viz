@@ -8,13 +8,13 @@ const ContourPlot = ({ data, title }) => (
       {
         ...data,
         type: 'contour',
-        contours: {
-          coloring: 'heatmap',
-        },
+        // contours: {
+        //   coloring: 'heatmap',
+        // },
         line: {
           width: 0,
         },
-        connectgaps: true,
+        // connectgaps: true,
         colorscale: [
           [-1000, 'rgb(0, 255, 0)'],
           [0, 'rgb(255, 255, 255)'],

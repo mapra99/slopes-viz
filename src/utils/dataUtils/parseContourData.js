@@ -9,7 +9,7 @@ export const parseContourData = (data, zKey) => {
   const zValues = xValues.map(x => (
     yValues.map(y => {
       const target = groupedByX[x].find(record => record["initialY"] === y)
-      return target ? target[zKey] : null
+      return target ? target[zKey] : 0
     })
   ))
 
