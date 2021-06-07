@@ -7,9 +7,6 @@ const ContourPlot = ({ data, title }) => (
     data={[
       {
         type: 'contour',
-        // contours: {
-        //   coloring: 'heatmap',
-        // },
         line: {
           width: 0,
         },
@@ -21,7 +18,7 @@ const ContourPlot = ({ data, title }) => (
         ...data,
       },
     ]}
-    layout={{width: '100%', height: '100%', title }}
+    layout={{width: '100%', height: '100%', title, yaxis: { autorange: 'reversed' } }}
   />
 )
 
